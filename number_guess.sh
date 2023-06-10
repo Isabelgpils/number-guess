@@ -24,7 +24,7 @@ RANDOM_NUMBER=$((1 + $RANDOM % 1000))
 echo "Guess the secret number between 1 and 1000:"
 read USER_GUESS
 
-GUESS_COUNT=0
+GUESS_COUNT=1
 
 
 until [[ $USER_GUESS == $RANDOM_NUMBER ]]
@@ -52,3 +52,4 @@ GET_USER_ID=$($PSQL "SELECT user_id FROM users WHERE username='$USERNAME'")
 UPDATE_GAMES=$($PSQL "INSERT INTO games(user_id, secret_number, guess_count) VALUES ($GET_USER_ID, $RANDOM_NUMBER, $GUESS_COUNT)")
 
 echo You guessed it in $GUESS_COUNT tries. The secret number was $RANDOM_NUMBER. Nice job!
+
